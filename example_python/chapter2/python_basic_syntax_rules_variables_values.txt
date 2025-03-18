@@ -1,0 +1,238 @@
+Chapter 2. Python Basic Syntax Rules, Variables and Values 
+
+Hello World Program 
+
+In keeping with the age-old tradition of introducing newbies to the world of
+programming with a simple Hello World, your first program will be a simple
+program that displays the “Hello World”. 
+
+First off, start your command line terminal and initiate the Python interpreter
+by typing “python” and pressing enter. You should see a prompt with three
+arrows meaning that the Python interpreter has been invoked.
+
+
+Enter the following text and press enter (return): 
+
+>>> print ("Hello World!") 
+
+This is a way to invoke the interpreter without having to pass a script file.
+However, this approach does not save your program because the code is
+interpreted and executed from the temporary memory. To create a program we can
+save, we will have to save the line of code we typed in a .py script file
+using a text editor.
+
+Exercise1: Hello World! 
+
+Start your text editor and type the code as it appears, replacing the (enter
+your name here) with your name. Choose a name to save your script as, such as
+HelloWorld.py.
+
+The line of code on your editor should look like this: 
+
+print ("Hello World!") #This will display Hello World! text on the screen 
+
+print ('Hello World again!') 
+
+print ("My name is (enter your name here)") 
+
+If you set the Python PATH variable correctly during setup, you should be able
+to run the saved .py script from the terminal by typing this command: 
+
+$ python HelloWorld.py
+
+If you typed the code exactly as it appears, and you are running Python from
+the directory in which the python script is saved, you should see the following
+result on your terminal when you execute the HelloWorld.py script: 
+
+print ("Hello World!") #This will display Hello World! text on the screen 
+
+print ('Hello World again!') 
+
+print ("My name is (enter your name here)") 
+
+Congratulations! You just wrote your first program in Python! By your own
+effort, you have earned the right to be referred to as a programmer.
+
+
+Basic Syntax Rules in Python 
+
+Before we can delve further into learning to write code in Python, there are a
+few universal Python syntax rules you must grasp first. In this section, we
+will cover the most basic rules you need to get started with your very first
+real Python program. We will learn more rules and best practices later on in
+the book.
+
+Python Identifiers 
+
+An identifier is a name used to identify an object such as a variable, module,
+class, or function. In the Python language, an identifier must begin with an
+alphabetic letter in uppercase (A to Z), lower case (a to z) or an underscore
+(_) followed more letters, underscores, or numeric digits. Python does not 
+allow the use of punctuation characters such as %, /, $, or @ within the
+identifier name. 
+It is also important to note that Python is a case sensitive language.
+This means that an identifier age is not the same as Age.
+
+ 
+RESERVED/KEY WORDS
+
+There are a  number of words written in lower case letters that are reserved and 
+cannot be used as constant, variables, or variables' identifiers. 
+
+Here is a table of these words:
+
+and		assert		break		class		continue
+def		del		elif		else		except
+exec		finally		for		from		global
+if		import		in		is		lambda
+not		or		pass		raise		return
+try		while		with		yield		await
+type		async		match		nonlocal	case
+true		false		as
+
+	 
+Lines and Indentation
+ 
+Unlike most other object-oriented programming languages, Python does not make use of
+curly braces to group lines of code into blocks to define functions, classes and flow
+control structures. Instead, line indentations are used to denote blocks of code.
+The rule of indentation is rigidly enforced.
+
+The number of spaces in the indentation may vary, but all statements within one block
+must have matching indentation spaces, typically four spaces or one tab per indent
+level.
+
+Multi-Line Statements
+ 
+Typically, statements in Python end with a new line. However, the line continuation
+character (\) can be used to denote that the line does not end and instead continues
+in the next. Consider this example: 
+
+Total_cost = item1_price + \ 
+item2_price + \ 
+item3_price
+
+Multi-line statements contained within brackets (), square brackets [], or curly braces{} do not need the line continuation character. 
+
+workdays = ["Monday", "Tuesday", "Wednesday", "Thursday", " Friday", "Saturday"]
+
+String Quotation Characters 
+
+Single (‘), double (“), and triple (''' or """) quotation marks are used to denote
+string literals in Python. A quotation must start and end with the same type of quote
+mark. Triple quotation marks denote strings that may span multiple lines. 
+In Exercise2, you can see how: 
+ 
+ 
+Exercise2: String quotation 
+
+name = 'John' 
+
+occupation = "Python programmer" 
+
+comment = """John is a Python programmer. He is 
+currently based in London.""" 
+
+print (name) 
+print (occupation) 
+print (comment)
+
+
+Comments in Python
+ 
+Comments in your program code are lines of text that the interpreter ignores because
+they are written for humans to understand what a particular section of the code does.
+Comments in Python start with the hash sign (#). Anything that comes after this sign
+will be ignored by 
+
+#This is a comment. It will be ignored by the interpreter. 
+print ("Hello World!") #This is another comment 
+
+To write comments spanning multiple lines, you must start each line with the # symbol.
+
+
+Multiple Statements on a Single Line 
+
+You can separate multiple lines written on a single line using a semi-colon. This rule only applies when neither of the statements on the line start a new block of code.
+Such a line would look like this: 
+
+name = "John"; age = 21;
+
+
+Variables and Values 
+Variables and Assignment 
+
+You were taught in basic algebra that a variable represents a number. The same applies in Python, except that a variable can also represent other values besides numbers,
+which can be integers or floats (we will look at these briefly). In Exercise2, as an
+illustration, we took a variable “name” and assigned it a value “John”. In Exercise3,
+we take another variable x and assign it a value 10.
+
+
+Exercise3: Variable assignment 
+
+x = 10 
+print (x) 
+
+The statement x = 10 is what is called an assignment statement. Assignment is
+associating a value with a variable. In Python, the key to assignment statement is the use of an assignment operator which is the symbol =, as you know from math, the equal
+sign.
+
+
+To put it in another way, the statement x = 10 binds a variable we named x to the value 10. In this case, x is a type int because it is bound to a value of integer type. 
+
+You can assign and re-assign a variable as often as wish. The variable type will change
+when you reassign it an expression of a different type.
+
+The print statement in Exercise4.py displays the assigned value of variable x. 
+Re-assigning the variable a different to the variable will evident after printing it.
+
+
+Exercise4: Multiple variable assignment 
+
+x = 10 
+print (x) 
+
+x = “Apples” 
+print (x) 
+
+When you run exercise5.py, here is what you should see: 
+
+
+10 
+Apples 
+
+Exercise5: Assigning multiple variables same value 
+
+You can assign a single value to several variables simultaneously in Python. 
+Consider this exercise: 
+
+x = y = z = 10 
+print (x) 
+print (y) 
+print (z)
+
+When you run the script above, you will notice that the values of variables x, y, and
+z are all 10. This is because an integer object with the value 10 is created and all
+the variables are assigned to its memory location. 
+
+You can also assign multiple variables multiple values in one line of code. 
+This is best illustrated in Exercise6
+
+
+Exercise6: Assigning multiple variables different values 
+
+name, age, occupation = "John", 21, "programmer" 
+print (name + age + occupation) 
+
+In Exercise6, three objects “John”, 21, “programmer” are assigned to variables name,
+age, and occupation respectively.
+
+
+Do not worry if the script prints “John21programmer” with no spaces—you get the point.
+The print statement in this exercise is for demonstration purposes. We will cover how
+to format your outputs later in the book. 
+
+
+
+  
+

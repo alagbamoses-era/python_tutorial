@@ -1,0 +1,482 @@
+Chapter 3. Basic Operators in Python
+ 
+In programming, an operator is the construct which is used to manipulate the 
+values of operands. 
+On your terminal, invoke the Python interpreter by typing Python then the 
+following and press enter: 
+5 + 9 
+6 / 8 
+90 * 21 
+
+You will notice that you can do these basic arithmetic calculations just by 
+entering values separated by operands such as plus (+), minus (-), division (/),and multiplication (*).
+
+
+Types of Operator
+ 
+There are seven types of operators supported by the Python language. They are: 
+1. Arithmetic operators 
+2. Relational or Comparison operators. 
+3. Assignment operators 
+4. Logical operators 
+5. Membership operators 
+6. Identity operators 
+7. Bitwise operators
+
+
+Arithmetic Operators
+ 
+Start your text editor and carry out Exercise7 to get some experience on how 
+arithmetic operators in Python work. 
+
+Exercise7: Arithmetic Operators 
+x, y, z, f = 27, 10, -9, 4 
+a = x + y 
+print ("When you add x and y you get", a) 
+b = x- y 
+print ("When you subtract y from x you get", b) 
+c = x * y 
+print ("When you multiply x and y you get", c) 
+d = x / z 
+print ("When you divide x by z you get", d) 
+e = x % y 
+print (e, "is the remainder when x is divided by y") 
+g = x**f 
+print ("x to the power of 4 is", g) 
+h = x//y 
+print ("The floor division value of x divided by y is", h)
+
+
+Here is a table summarizing the above (and more) arithmetic operators used in 
+Python:
+ 
+  Operator		 Description 
+
++ Addition	 	Adds two values on either sides.
+
+- Subtraction 		Subtracts the value on the right side from that on the left.
+
+* Multiplication 	Multiplies values on either sides. 
+
+ 
+/ Division 		Divides the value on the left side by that on the right. 
+
+% Modulus 		Divides the value on the left by that on the right and returns the
+			remainder. 
+
+** Exponent 		Performs exponential (power) calculation of the value on the right
+			by the value on the left. 
+
+// Floor Division 	Divides the value on the left by that on the right and returns
+ 			the quotient value of the result (without the decimal values).
+
+
+Comparison Operators 
+
+As with the arithmetic operators, we will learn comparison by first writing a 
+script then running it to see the results. Carry on with Exercise8.
+ 
+Exercsie8.py: Comparison operators 
+
+x, y = 12, 10 
+if (x == y ): 
+print ("1. x is equal to y") 
+else: 
+print ("1. x is not equal to y") 
+
+if (x != y ): 
+print ("2. x is not equal to y") 
+else: 
+print ("2. x is equal to y") 
+
+if (x < y): 
+print ("3. x is less than y") 
+else: 
+print ("3. x is not less than y") 
+
+if (x > y): 
+print ("4. x is greater than y") 
+else: 
+print ("4. x is not greater than y") 
+
+if (x <= y): 
+print ("5. x is either less than or equal to y") 
+else: 
+print ("5. x is neither less than nor equal to y") 
+
+if (x >= y): 
+print ("6. x is either greater than or equal to y") 
+else: 
+print ("6. x is neither greater than nor equal to y")
+
+
+Exercise8, demonstrates how to use relational operators. The table below 
+summarizes what all the relational operators in Python do: 
+
+Operator 			Description 
+
+== 				Condition returns true if the value of the left
+				 and right operands are equal. 
+
+!=  				Condition returns true if the value of the left
+				and right operands are not equal. 
+
+>  				Condition returns true if the value of the left 
+				operand is greater than the value of the right
+				operand. 
+
+<  				Condition returns true if the value of the left
+				operand is less than the value of the right
+				operand. 
+
+>=  				Condition returns true if the value of the left
+				operand is greater than or equal to the value of
+				the right operand. 
+
+<=  				Condition returns true if the value of the left 
+				operand is less than or equal to the value of
+				right operand.
+
+
+Assignment Operators
+ 
+As the name suggests, assignment operators are used to assign values to
+variables. 
+
+Exercise9 demonstrates how these operators are used. 
+
+Exercise9: Assignment Operators 
+
+x, y, z = 12, 7, 0 
+z = x + y 
+
+print ("1. Value of z is ", z) 
+z += x 
+print ("2. Value of z is ", z) 
+z *= x 
+print ("3. Value of z is ", z) 
+z /= x 
+print ("4. Value of z is ", z) 
+z = 2 
+z %= x 
+print ("5. Value of z is ", z) 
+z **= x 
+print ("6. Value of z is ", z) 
+z //= x 
+print ("7. Value of z is ", z)
+
+Here is a table that summarizes what each of the operators do. 
+
+Operator		Description 
+
+=			The equal signs assigns values on the right operand to
+			that on the left side. 
+
++= 			Add the value of the right operand to the value of the
+			left operand then assign the result to left operand. 
+
+-= 			Subtract the value of the right operand from the value
+			left operand then assigns the result to the left operand. 
+
+*= 			Multiply the value of the right operand with the value of
+			the left operand then assigns the result to left operand. 
+
+/= 			Divide the value of the left operand by the value right
+			operand then assigns the result to left operand. 
+
+%= 			Takes the modulus using the values of the two operands 
+			then assigns the result to left operand. 
+
+**= 			Performs Exponential (power) calculation of the operators
+			then assigns the result to the left operand. 
+
+//= 			It performs floor division on the operators then assigns 
+			the result to the left operand.
+
+
+Other assignment operators you will come across at an advanced stage of learning
+Python are &=, |=, ^=, >>=, and <<=. 
+
+Logical Operators 
+
+There are three logical operators in Python: and, or, and not. 
+Exercise10: Logical operators 
+x = True 
+y = False 
+print (“When x is True and y is False:”) 
+print ("x and y is", x and y) 
+print("x or y is", x or y) 
+print("not x is", not x) 
+print("not y is", not y) 
+
+x = True
+y = True
+print("x and y is", x and y)
+print("x or y is", x or y)
+
+x = False
+y = False
+print("x and y is", x and y)
+print("x or y is", x or y)
+
+
+Practical calculation of logical operator in python
+
+	0 means off or false
+	1 means on or true	
+
+
+		AND		
+	0		0	0	
+	1		0	0
+	0		1	0
+	1		1	1	
+	
+
+		OR
+
+	0		0	0
+	1		0	1
+	0		1	1
+	1		1	1
+	
+
+		NOT
+
+	0		1	
+	1		0
+	
+	
+Here is a summary of what the logical operators in Python do: 
+
+Operator Meaning and Returns True if both the operands are True or Returns True
+if either of the operands is True not Returns True if operand is False and False if
+the operand is True.
+
+
+Membership operators 
+
+There are two membership operators in Python: in and not in. They are used to
+test whether a variable or value is present in a sequence such as string,
+dictionary, list, set, or tuple. We will learn about these types later on. 
+
+Exercise11: Membership operators 
+x = "Hello World!" 
+y = {1:"x", 2:"y"} 
+print ("H" in x) 
+print ("Hello" not in x) 
+print (2 in y) 
+print ("z" in y) 
+
+The table below should help you understand why you get the result you see in
+Exercise11. 
+
+Operator Meaning 
+'in' Returns True if the variable or variable is found in the sequence. 
+
+'not in' Returns True if the variable or value is not found in the sequence.
+
+
+Identity operators 
+
+Identity operators are another kind of special operators in Python. They are 'is'
+and 'is not'. These operators are used to check if two variables or values are
+located on the same memory allocation. 
+
+Exercise12: Identity operators 
+x1 = 10 
+y1 = 10 
+x2 = "Hello" 
+y2 = "Hello" 
+x3 = [1, 2, 3] 
+y3 = [1, 2, 3] 
+print (x1 is not y1) 
+print (x2 is y2) 
+print (x3 is y3) 
+
+In this exercise, x1 and y1 are variables with similar values (integer value
+10). 
+
+This means that they are equal and identical, just as variables x2 and y2 with
+similar and equal string values. However, x3 and y3, although equal, are not
+identical because they are lists and lists are mutable (this means they can be
+changed). The interpreter allocates the lists separate memory even when they 
+are equal. 
+
+Here is a table defining what the identity operators do. 
+
+
+Operator Meaning 
+'is' Returns True if the operands are identical. 
+
+'is not' Returns True if the operands are not identical.
+
+
+Bitwise operators 
+
+Bitwise operators in Python act on operands in binary digit form, bit by bit. 
+
+Here is a summary of the operations. 
+
+Operator Meaning 
+
+&	Bitwise AND (hampersand)
+
+	example: 
+	5 in binary is equal to 0101
+	3 in binary is equal to 0011
+				0001
+
+	10 is 1010
+	9 is  1001
+	      1000		
+
+|	Bitwise OR  (bar or pipe)
+
+	6  is 0110
+	7 is  0111
+	      0111	
+
+~	Bitwise NOT (tilde)
+
+In Python, the ~ operator is used for bitwise NOT (also known as bitwise
+complement) operations.
+
+Syntax
+
+~operand
+
+Example
+
+a = 5   # 101 in binary
+b = ~a  # ~101 = 010 in binary (two's complement)
+
+print(b)  # Output: -6
+
+
+In this example:
+
+- The ~ operator is used to perform a bitwise NOT operation on a.
+- The binary representation of a is 101.
+- The bitwise NOT operation flips all the bits, resulting in 010 in binary.
+- However, Python interprets the result as a signed integer using two's complement
+representation, which results in -6.
+
+Two's Complement Representation
+In two's complement representation, the most significant bit (MSB) represents the
+sign of the number:
+
+- If the MSB is 0, the number is positive.
+- If the MSB is 1, the number is negative.
+
+To get the two's complement representation of a number, you can use the following
+formula:
+
+-x = ~x + 1
+
+Where x is the original number.
+
+Use Cases
+1. Bitwise operations: Use the ~ operator to perform bitwise NOT operations.
+
+2. Two's complement representation: Use the ~ operator to get the two's complement
+representation of a number.
+
+3. Signed integer arithmetic: Use the ~ operator to perform signed integer
+arithmetic operations.
+
+
+	8 is 1000 	
+	     0111 (one's compliment)	
+
+
+
+^	Bitwise XOR (exclusive or) 
+
+		XOR
+	0 	0	0
+	1	0	1
+	0	1	1
+	1	1	0
+
+	10 is 1010
+	11 is 1011
+	      0001
+
+
+>>	Bitwise right shift 
+	20 is shift right 2
+		10100
+		1010
+		101
+
+	100 is shift right 7
+		01100100
+		0	 
+
+<<	Bitwise left shift
+	
+	10 is shift left 7
+		1010
+	       10100
+	      101000
+	     1010000
+	    10100000
+	   101000000
+	  1010000000
+	 10100000000
+
+
+	5 is shift left 2
+		101
+	       1010
+	      10100
+			
+
+
+Operator Precedence in Python 
+
+To evaluate expressions with more than a single operator, Python uses a rule of
+precedence that guides the order in which the operations are executed.
+
+For instance, multiplication has a higher precedence than addition, and addition 
+higher than subtraction. 
+
+This rigid order can be changed using parentheses () as it has the highest
+precedence. The table below lists the precedence of all operators from the
+highest to the lowest. 
+
+	Operator		 Description 
+
+1 	()			Parentheses 
+
+2 	**			Exponentiation (raise to the power) 
+
+3  	~ + -			Complement, unary plus +@ and minus -@ 
+
+4  	* / % //		Multiply, divide, modulo and floor division 
+
+5  	+ -			Addition and subtraction 
+
+6  	>> <<			Right and left bitwise shift 
+
+7  	&			Bitwise 'AND' 
+
+8  	^ |			Bitwise exclusive `OR' and regular `OR' 
+
+9  	<= < > >=		Comparison operators 
+
+10  	<> == !=		Equality operators 
+
+11  = %= /= //= -= += *= **=    Assignment operators 
+
+12  	Is, is not		Identity operators 
+
+13  	In, not in		Membership operators
+ 
+14   	not, or, and		Logical operators
+
+
+
+
+

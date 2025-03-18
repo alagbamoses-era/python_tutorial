@@ -1,0 +1,545 @@
+Chapter 5. Python Data Structure I: Lists, Tuples, and Dictionary 
+
+Sequences are another basic type of data structure in Python. Each 
+element in a sequence, be it a list, tuple, or dictionary, is assigned 
+an index that marks its position. The first index is always zero, the 
+second is one and so on. Python has six in-built types of sequences but 
+the most common that every beginner should learn are lists, tuples and 
+dictionary.
+
+
+Lists 
+
+A list is basically an ordered sequence of items. In Python, lists are 
+among the most popular sequence data types because they are flexible 
+(the items do not need to be of the same type), and declaring them is 
+quite easy. Items in a list are enclosed within square brackets [ ] 
+and are separated by commas. 
+
+Creating a list in Python 
+
+To create a list in Python, enclose items in square brackets separated 
+by commas and assign it a variable.
+ 
+Exercise22.py: Creating lists
+
+
+
+weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] 
+yearlist = [2017, "Two Thousand and Seventeen", "XXVII", 20.17] 
+favorites = ["a", "x", "i", "xx"] 
+print (weekdays) 
+
+Just as in string indices, elements of a list are indexed starting 
+at 0. They can be concatenated, sliced and so on.
+
+
+Accessing values in a list 
+
+To access the values of a list, we use square bracket slicing and 
+refer to the values using the index or indices. Try it out in 
+Exercise23. 
+
+Exercise23: Accessing list values 
+months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", 
+"Sep", "Oct", "Nov", "Dec"] 
+
+print ("The first month is", months[0]) 
+print ("The 5th to 9th months are", months[4:9]) 
+print ("The second last month is", months[-2]) 
+print (months[6:], "make up the last half of the year")
+
+
+Updating a list 
+
+You can update a single element or multiple elements of a list 
+simultaneously by specifying the slice on the left side of the 
+assignment operator. Try it in the next exercise. 
+
+Exercise24: Updating a list 
+
+subjects = ["Math", "Physics", "Chemistry"] 
+
+print ("List of subjects:", subjects) 
+
+subjects[2] = "Biology" 
+
+print ("New list of subjects: ", subjects) 
+
+To add elements to a list, you use the append() function as in 
+Exercise24. 
+
+Exercise25: Appending a new item to a list 
+subjects = ["Math", "Physics", "Chemistry"] 
+print ("List of subjects:", subjects) 
+subjects[2] = "Biology" 
+
+print ("New number of subjects: ", subjects) 
+Note that the append() function allows you to add only one item 
+at a time.
+
+
+subjects.append('Computer Science')
+
+print(subjects)
+
+
+Deleting an element in a list 
+
+There are two ways you can delete an element in a list. You can 
+use the del statement if you know the exact element or 
+elements you wish to delete or the remove() method if you do not. 
+Let us put both these in practice in the next exercise. 
+
+Exercise26: Deleting an item in a list 
+subjects = ["Math", "Physics", "Chemistry", "Biology", "History"] 
+print ("List of subjects:", subjects) 
+
+del subjects[2] 
+print ("New list of subjects after del: ", subjects) 
+subjects.remove("Physics") 
+print ("New list of subjects after subjects.remove:", subjects)
+
+Basic list operations 
+
+Just like strings, lists can be manipulated using operators such 
+as + to concatenate and * to iterate. Generally speaking, lists 
+respond to all the general sequence operations that we used on 
+strings in the previous chapter. Try out the operations in 
+Exercise27 to have a better grasp of what each does. 
+
+Exercise27: Basic lists operations 
+fruits = ["Mango", "Banana", "Orange", "Apple", "Pear"] 
+numbers1 = [1, 2, "three", 4] 
+numbers2 = [7, "x", "p", 10] 
+print ("The length of the fruits list is", len(fruits)) 
+
+numbers = numbers1 + numbers2 
+print (numbers) 
+print (numbers1 * 2) 
+print (10 in numbers2) 
+for x in [1, 2, 3]: print (x) 
+
+The following table summarizes the built-in methods and functions 
+that you can use to manipulate lists in Python:
+
+
+Function		Description 
+cmp(list1, list2)	Compares the elements of two lists. 
+len(list)		Returns the total length of the list. 
+max(list)		Returns the item with max value from the list. 
+min(list)		Returns the item with min value from the list. 
+list(seq)		Converts a tuple into list. 
+
+The following list methods are built into Python: 
+
+Method			Description 
+list.append(x)		Appends an object x to list 
+list.count(x)		Returns the count of how many times x occurs in 
+			list 
+list.extend(seq)	Appends the contents of seq to list 
+list.index(x)		Returns the lowest index in list that x appears 
+list.insert(index, x)	Inserts object x into list at the specified index 
+list.pop(x=list[-1])	Removes and returns last object or x from list 
+list.remove(x)		Removes object x from list 
+list.reverse()		Reverses the list of objects 
+list.sort([func])	Sorts objects of list using compare func (if 
+
+
+Tuples 
+
+Similar to list, a tuple is an ordered sequence of items. The only 
+difference between it and a list is that a tuple is immutable. This 
+means that once it has been created, it cannot be modified.
+ 
+Tuples are used to create write-protected data. Because they are not 
+dynamic, they are often faster than lists. A tuple is defined within 
+parentheses () and the values are separated by commas. Like lists, a 
+tuple can contain values of different data types. 
+
+my_tuple = (5, "2017", 1+3j) 
+
+The slicing operator we used on strings and lists [] can be used to 
+extract the items in a tuple, but values cannot be changed. 
+
+tuple2 = (1, 2, 3, 4, 5 ) 
+
+An empty tuple is basically two parentheses with nothing between them 
+empty_tuple = () 
+
+To create a tuple with only one value, it must include a comma.
+
+ Like this: 
+Year = (2017,) 
+
+Just like strings and lists, the values within a tuples are references 
+with indices that start at 0 and can be concatenated, sliced, and so on.	provided)
+
+
+Accessing values in a tuple 
+
+Use the square bracket to slice along the index or indices and access 
+the values of a tuple as in Exercise29. 
+
+Exercise29: Accessing values in a tuple 
+
+continents = ("Asia", "Africa", "Americas", "Europe", "Australia") 
+
+print ("continents[0]:", continents[0]) 
+
+print ("continents[2:]", continents[2:]) 
+
+print ("continents[:-3]", continents[:-3])
+
+
+
+Updating a tuple 
+
+Tuples are immutable, which means that the tuple elements or values 
+between the brackets cannot be changed or updated. However, you can 
+take the values from an existing tuple and create a new tuple as 
+demonstrated in Exercise30. 
+
+Exercise30: Updating a tuple 
+
+continents = ("Asia", "Africa", "Americas", "Europe", "Australia") 
+
+continents2 = ("Antarctica",) 
+
+all_continents = continents + continents2 
+
+print (all_continents)
+
+
+Deleting tuple elements 
+
+It is not possible to remove individual values of a tuple. Therefore, 
+the only option, as we saw with updating tuple values in Exercise30, 
+is to create another tuple from the values of an existing tuple, 
+discarding the undesired elements. 
+
+To delete an entire tuple, you can use the del statement. The syntax 
+looks like this: 
+
+del tuple 
+
+Where tuple is the name of the tuple to delete.
+
+
+
+Basic tuple operations
+ 
+As we have already learned, tuples respond to most operators we used 
+on strings and lists including + for concatenation and * for iteration. 
+Generally speaking, tuples respond to all the operations we have used 
+on strings. 
+
+Therefore, we will not repeat them in this section. For your free 
+practice time, find out which operations from strings and lists can 
+be applied to tuples and find out what results they return.
+
+
+
+DICTIONARIES 
+
+A dictionary in Python is an unordered collection of items separated by 
+commas and enclosed in curly braces. Unlike other compound data types 
+such as a list and a tuple which have only one value for an element, a 
+dictionary has a pair of key and value separated by a colon. An empty 
+dictionary without values will have empty curly braces. 
+
+The values of a dictionary may be any data type, but the data type of 
+the keys must be immutable such as numbers, strings, or tuples.
+
+Dictionaries in Python are optimized to retrieve paired values using the 
+element key.
+
+Creating a dictionary 
+
+To create a dictionary, simply place item pairs separated by commas 
+inside curly braces {}. 
+
+Each item must have a key and a corresponding value in the format key: 
+value. 
+
+Exercise31: Creating dictionaries 
+
+empty_dict = {} 
+
+integerkey_dict = {1: "Mango", 2: "Apple", 3: "Orange"} 
+
+mixedkey_dict = {"name": "John", 0: [2, 4, 3]} 
+
+print (integerkey_dict) 
+print (mixedkey_dict) 
+
+We can also create a dictionary using the built-in function dict().
+Accessing elements of a dictionary 
+
+While we used indexes to access the values of strings, tuples, and 
+lists, with dictionaries, we use keys. To access an element in a 
+dictionary, we use a key inside a square bracket or the get() method. 
+
+Exercise32: Accessing dictionary elements 
+
+my_dict = {"name":"John", "age": 21, "occupation":"Programmer"} 
+
+print (my_dict["name"]) 
+
+print (my_dict.get('age')) 
+
+work = my_dict.get("occupation") 
+
+print (work) 
+
+If you use the square bracket method to access a key does not exist in 
+the dictionary, it will return an KeyError but if you use the get() method 
+it will return None instead.
+
+Adding, deleting, and modifying elements in a dictionary 
+
+Because a dictionary is a mutable data type, you can add new or delete 
+or update existing elements. If the key of the element you are changing 
+exists, the value will get updated, else a new key: value pair will be 
+created and added to the dictionary. 
+
+Exercise33: Deleting and updating dictionary elements 
+
+student = {"name": "John Doe", "age": 25, "grade": "B+"} 
+
+print ("Before update:", student) 
+
+print ("\nChange age to 30:\nAdd Sex key:value pair") 
+
+student["age"] = 30 
+
+student["sex"] = "Male" 
+
+print ("\nAfter update:", student) 
+
+print ("Delete grade entry:") 
+
+del student["grade"] 
+
+print ("After deleting grade:", student) 
+
+When you run Exercise33.py, you will learn that: 
+
+1.  You can update the value of a key in the dictionary by assigning 
+it a new value using the traditional = operator. 
+
+2.  You can create a new key:value pair by assigning a non-existent 
+key a new value as in student["sex"] = "Male". 
+
+3.  You can remove an individual dictionary element using the del 
+operator.
+ 
+You can also remove all the contents of a dictionary in a single 
+operation using the dict.clear() method statement.
+
+You can also delete the entire dictionary by using del dictionary 
+operation where dictionary is the name of the dictionary. 
+
+Here is a table summarizing the built-in methods and functions you can 
+use to manipulate a dictionary in Python.
+
+Function		Description 
+cmp(dict1, dict2)	Compares the elements of dict1 to those of dict2. 
+
+len(dict)		Returns the total length of the dictionary (the 
+			number of items in the dictionary) 
+
+str(dict)		Returns a printable string representation of the 
+			dictionary 
+
+type(variable)		Returns the type of the passed variable. 
+
+
+The next table is a presentation of the methods that you can use to 
+manipulate the elements of a dictionary: 
+
+Methods			Description 
+dict.clear()		Removes all the elements of the dictionary dict 
+
+dict.copy()		Returns a shallow copy of the dictionary dict 
+
+dict.fromkeys()		Creates a new dictionary with keys from seq with 
+			values set to value. 
+
+dict.get(x, default=None) Returns the value of key x in the dict dictionary 
+			  or  default if the does not exist. 
+
+dict.has_key(x)		Returns True if key x is in dictionary dict, 
+			otherwise False 
+
+dict.items()		Returns a list of dict's (key, value) pairs in tuple 
+			format. 
+
+dict.keys()		Returns list of keys of the dict dictionary. 
+
+dict.setdefault(x,default=None) Returns the value of key x in the dict 
+			dictionary or set dict[key] = default if key does 
+			not exist. 
+
+dict.update(dict2)	Adds dictionary key:value pairs from dict to dict 
+
+dict.values()		Returns a list of values from the dict dictionary.
+
+
+Properties of dictionary keys 
+
+While the values of a dictionary in Python have no restriction – they can 
+be made up of any arbitrary objects or data types, which include standard 
+or user-defined objects – keys are different. There are two vital points 
+you must know about dictionary keys in Python: 
+
+1. You cannot enter more than one key in a dictionary. This means you 
+cannot have duplicate keys in a single dictionary. 
+
+2. Unlike values, keys are immutable. This means you can use types such as 
+strings, tuples, and strings as keys, but you cannot define a key using 
+something like [“Key”).
+
+
+
+Set Data Structure
+
+In Python, a set is an unordered collection of unique elements. Sets are 
+useful when you need to store distinct values and perform operations like 
+unions, intersections, and differences.
+
+
+---
+
+Creating Sets
+
+You can create a set using curly braces {} or the set() constructor:
+
+# Using curly braces
+my_set = {1, 2, 3, 4, 5}
+
+# Using set() function
+my_set2 = set([1, 2, 3, 4, 5])  # From a list
+
+# Creating an empty set (MUST use set())
+empty_set = set()  # Correct
+wrong_set = {}     # This creates an empty dictionary, NOT a set!
+
+
+print(type(empty_set))  # <class 'set'>
+print(type(wrong_set))  # <class 'dict'>
+
+
+
+
+
+Basic Operations
+
+Adding Elements
+
+s = {1, 2, 3}
+s.add(4)  # Adds a single element
+print(s)  # {1, 2, 3, 4}
+
+Removing Elements
+
+s.remove(2)  # Removes 2; raises an error if not found
+
+s.discard(5)  # Removes 5 if it exists; otherwise does nothing
+
+print(s)
+
+Set Length
+
+print(len(s))  # Number of elements in the set
+
+
+
+Checking Membership
+
+print(3 in s)  # True
+print(5 in s)  # False
+
+---
+
+Set Operations
+
+Union (| or union())
+
+Combines elements from both sets:
+
+A = {1, 2, 3}
+B = {3, 4, 5}
+
+print(A | B)  # {1, 2, 3, 4, 5}
+
+print(A.union(B))  # Same result
+
+Intersection (& or intersection())
+
+Finds common elements:
+
+print(A & B)  # {3}
+
+
+print(A.intersection(B))  # Same result
+
+
+
+
+Difference (- or difference())
+
+Elements in A but not in B:
+
+print(A - B)  # {1, 2}
+print(A.difference(B))  # Same result
+
+Symmetric Difference (^ or symmetric_difference())
+
+Elements that are in one set but not both:
+
+print(A ^ B)  # {1, 2, 4, 5}
+print(A.symmetric_difference(B))  # Same result
+
+
+Set Comparisons
+
+X = {1, 2}
+Y = {1, 2, 3, 4}
+
+print(X < Y)  # True (X is a proper subset of Y)
+print(X.issubset(Y))  # True
+print(Y.issuperset(X))  # True
+
+
+Set Comprehension
+
+You can create sets using comprehension:
+
+squared = {x**2 for x in range(5)}
+print(squared)  # {0, 1, 4, 9, 16}
+
+
+
+Frozen Set (Immutable Set)
+
+A frozenset is a read-only version of a set:
+
+fs = frozenset([1, 2, 3, 4])
+# fs.add(5)  # ERROR: Cannot modify a frozenset
+print(fs)
+
+
+
+When to Use Sets?
+
+When you need unique elements.
+
+When you need fast membership testing (in is faster in sets than lists).
+
+When performing set operations like union, intersection, etc.
+
+
+
+
+

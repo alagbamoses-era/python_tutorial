@@ -1,0 +1,97 @@
+Chapter 1: Introduction 
+
+You have used a computer. You even own one or more, and it helps you
+accomplish all kinds of interesting and useful things. The many applications
+that computers run to help you solve daily life problems to make your life 
+easier are designed and written by programmers to accept input and respond to
+commands in different ways—but you already know this. The underlying operations
+that make computer applications and computer systems in general useful are
+determined by the design in which the programs are written. In this eBook, you
+will learn how to write computer programs so that a user can issue instructions
+to the computer and make it react a way that solves their problems. This eBook
+will teach you the basics on how to write computer programs using a programming
+language called Python.
+
+What is Python? 
+
+Python is one of the numerous computer programming languages that are gaining
+popularity every day. It is a general high-level language that is easy to learn
+and even easier to use. Its style and philosophy emphasizes on code readability
+and simplicity. The syntax makes it easy for programmers to write computer
+instructions in fewer lines of code compared to the number it would take to
+write similar instructions in other languages such as Java, C++, or C#. 
+
+
+Python’s core philosophy is summarized in the first seven principles that
+governed the development of the language as written in The Zen of Python: 
+They read: 
+
+1. Beautiful is better than ugly. 
+
+2. Explicit is better than implicit. 
+
+3. Simple is better than complex. 
+
+4. Complex is better than complicated. 
+
+5. Flat is better than nested. 
+
+6. Sparse is better than dense. 
+
+7. Readability counts.
+
+At the risk of exposing my biasness towards the language, I will make a bold
+claim that Python is fast and steadily becoming the most popular programming
+language amongst beginner programmers. You probably chose to study this 
+language because you were influenced by a programmer already using it, or
+learning it. You are in luck because you get to study a simple-to-learn yet
+powerful programming language that is also economical with a high level 
+information structure. 
+
+
+Studying Python is possibly the most effective approach you could have chosen
+to learn object-oriented programming. The code you will learn to create by 
+studying the chapters in this eBook will help you create elegant and dynamic
+syntax that is already interpreted. Your code will be perfect and ready for
+scripting, and turning simple lines of text into speedy and useful applications 
+that can run on a variety of platforms – both small and large scale. Whether
+you are completely new to computer programming or have some experience with 
+another language, you will be pleasantly surprised how easy it is to create
+powerful programs with Python.
+
+What should you expect of this book? 
+
+This book is written for a complete beginner to the world of programming or a
+seasoned programmer curious to learn a new language. It goes deep to show 
+what makes Python such a dynamic programming language, starting from how to
+set it up on your computer, what the different data types it uses are, what
+basic functions you need to know, and what classes and objects are used in the
+course of creating programs. It also teaches the basics about operators and
+variables, and how to call functions among others.
+
+
+Do not be intimidated by all these jargon—they are the most basic things you
+need to learn when you are introduced to any programming language. What makes
+this book special, however, is HOW you learn them, and not WHAT you learn.
+You could use Google only and still get as much information as you need to get
+started, but you would probably end up lost and confused because you need
+ordered and simplified introduction to master the art of coding in Python. 
+ 
+
+This book uses instruction technique to guide you through a sequence of 64
+controlled exercises that will build your skills through practice. First you
+do, see HOW it works, then learn the WHAT and WHY. This is a great way to 
+gradually but progressively establish your coding skills by practice and
+memorization, which enables you to apply what you learn in more difficult
+problems at the end of each section of the book.
+
+By the end of this book, you will be equipped with the skills to learn even
+more complex programming topics in Python and other object oriented programming
+languages. As long as you invest your focus in every chapter of the book,
+dedicate some time in understanding and practicing what you learn, and apply
+the skills you acquire outside what you learn within the book, you will be a
+proficient Python programmer in no time.
+
+
+
+
