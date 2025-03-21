@@ -541,5 +541,51 @@ When performing set operations like union, intersection, etc.
 
 
 
+In Python 3, a frozenset is an immutable version of a set. It has the 
+same properties as a regular set, but once created, it cannot be modified 
+(no adding or removing elements). This makes frozenset hashable, meaning 
+it can be used as a dictionary key or stored in another set.
+
+Creating a frozenset
+
+# Creating a frozenset from a list
+fs = frozenset([1, 2, 3, 4, 5])
+print(fs)  # Output: frozenset({1, 2, 3, 4, 5})
+
+# Creating a frozenset from a set
+fs2 = frozenset({10, 20, 30})
+print(fs2)  # Output: frozenset({10, 20, 30})
+
+Properties of frozenset
+
+Immutable: No add() or remove() methods.
+
+Supports set operations: Union, intersection, difference, etc.
+
+Can be used as a dictionary key: Since it's hashable.
+
+
+Example: Set Operations with frozenset
+
+fs1 = frozenset({1, 2, 3, 4})
+fs2 = frozenset({3, 4, 5, 6})
+
+# Union
+print(fs1 | fs2)  # frozenset({1, 2, 3, 4, 5, 6})
+print(fs1.union(fs2))
+
+# Intersection
+print(fs1 & fs2)  # frozenset({3, 4})
+print(fs1.intersection(fs2))
+
+# Difference
+print(fs1 - fs2)  # frozenset({1, 2})
+print(fs1.difference(fs2))
+
+Using frozenset as a Dictionary Key
+
+data = {frozenset({1, 2, 3}): "Group 1", frozenset({4, 5}): "Group 2"}
+print(data[frozenset({1, 2, 3})])  # Output: Group 1
+
 
 
