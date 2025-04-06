@@ -1,0 +1,391 @@
+Chapter 6: Decision Making in Python 
+
+Decisions are a core part of programming. Because we will always create 
+programs that anticipate certain conditions to be met during normal 
+execution, as programmers, we must specify actions that the program 
+should take when the conditions are met. 
+
+What decision structures do is to evaluate one or multiple expressions 
+which return TRUE or FALSE outcomes. We can then determine what actions 
+the program should take by defining the statements to execute when the 
+outcome is TRUE or FALSE.
+
+The if statement 
+
+The diagram below is a flowchart diagram of a basic decision making 
+structure used in mostprogramming languages. 
+
+In Python, any non-null and non-zero value returned is regarded as 
+TRUE while a null or zero value is assumed to be FALSE. The decision 
+making structure demonstrated in the figure above represents the most 
+basic conditional statement that uses the if statement that we first 
+used in Exercise8.py. 
+
+Here is the syntax of the if decision making structure: 
+
+if condition_test: 
+     statement 
+
+Note: Indentation is very important. 
+Exercise34: if statement 
+
+x = 10 
+if x == 10: 
+    print ("x = 10")
+
+
+What this simple exercise does is this: 
+
+1. First, the variable x is created and assigned a value of 10. 
+
+2. The decision making structure if evaluates whether the value of x 
+is equal to 10. 
+
+3. The string “x = 10” is displayed on the screen should the if 
+statement evaluate to TRUE. 
+
+Note that we can also write the if statement in this format: 
+x = 10 
+if x == 10: 
+    print ("x = 10")
+
+
+The if… else statement 
+
+So far, we have seen that we can use the if statement to evaluate 
+condition and execute a statement when the results evaluates to TRUE. 
+However, with the if statement, nothing happens when the condition 
+evaluates to FALSE. 
+
+With the if… else statement, we can provide an alternative statement 
+for the interpreter to execute should the condition being evaluated 
+evaluate to FALSE. 
+
+Here is the flowchart diagram of the if… else structure of decision 
+making in Python: 
+
+In Exercise8, we wrote a program that evaluates whether one variable 
+is equal to another and to execute a statement if it is, or execute a 
+second if it is not. We used the if… else condition to achieve this. 
+
+The syntax of an if… else statement takes this format: 
+
+if condition_test: 
+    statement_of_if 
+else: 
+    statement_of_else 
+
+Exercise35: if… else condition 
+
+x, y = 12, 12 
+if (x == y ): 
+    print ("x is equal to y") 
+else: 
+    print ("x is not equal to y") 
+
+Can you change the values of the variables x or y to make them equal 
+and see what happens when you run the script?
+
+#####################
+
+if...elif...else statement 
+
+The if… else statement is a way for the program to evaluate a condition, 
+and execute a statement when the condition returns TRUE or execute another 
+when it returns FALSE. With Python, you can evaluate a condition more than 
+once and use the if… else statement more than once. However, rather than 
+use an else… if statement, you can easily use elif. elif is the short of 
+else if.
+
+This is best demonstrated in Exercise36.py. 
+
+Exercise36.py: Nested if statements
+ 
+age = int(input("Enter age to evaluate:")) 
+
+if age >= 18: 
+    agegroup = "Adult" 
+elif age >= 13: 
+    agegroup = "Teenager" 
+elif age >=0: 
+    agegroup = "Child" 
+else: 
+    agegroup = "Invalid" 
+
+print (agegroup) 
+
+
+In Exercise36, the program prompts the user to enter an integer to evaluate. 
+It checks whether the input is equal to or greater than 18 and if TRUE, 
+determines that the agegroup is Adult. If it is not equal or greater than 
+18, which means the condition returns FALSE, it moves on to the next elif 
+block for evaluation and so on. At the end, there is an else statement that 
+is executed should all the elif statements return FALSE. 
+
+The flowchart diagram of the if… elif… else construct looks like this:
+
+
+Nested if statement 
+
+With Python, you can use one if or if… elif… else statement inside another 
+if… elif… else statement or statements. This forms a nested structure of 
+if and if… else’s. The only way to figure out which level of nesting a 
+statement is at before arriving at the last else statement is by using 
+indentation. Because nesting if statements can be very confusing, you 
+should try to avoid using it if you can. 
+
+Exercise37 illustrates how a nested if… elif… else statement looks like. 
+
+Exercise37: Nested if statement 
+number = float(input("Enter a number to evaluate: ")) 
+
+if number >= 0: 
+     if number == 0: 
+          print (number, "is a Zero") 
+     else: 
+          print (number, "is a positive number") 
+else: 
+     print (number, "is a negative number")
+
+Here's a real-world Python 3 program that uses if-else and nested if-else. 
+This program checks user login credentials and assigns different access 
+levels based on the role.
+
+Program: User Authentication System
+
+# Simple User Authentication System
+
+# Predefined user credentials
+users = {
+    "admin": {"password": "admin123", "role": "admin"},
+    "user1": {"password": "userpass", "role": "user"},
+    "guest": {"password": "guest", "role": "guest"}
+}
+
+# Get user input
+username = input("Enter username: ")
+password = input("Enter password: ")
+
+# Check if the username exists
+if username in users:
+    # Check if the password matches
+    if users[username]["password"] == password:
+        print("Login successful!")
+        
+        # Nested if-else to check the role
+	if users[username]["role"] == "admin":
+            print("Welcome, Admin! You have full access.")
+        elif users[username]["role"] == "user":
+            print("Welcome, User! You have limited access.")
+        else:
+            print("Welcome, Guest! You have read-only access.")
+    else:
+        print("Incorrect password. Access denied.")
+else:
+    print("Username not found. Please register first.")
+
+
+How It Works
+
+1. The program stores user credentials in a dictionary.
+
+2. It asks for a username and password.
+
+
+3. If the username exists, it checks the password.
+
+
+4. If the password is correct, it checks the user role:
+
+Admin → Full access
+
+User → Limited access
+
+Guest → Read-only access
+
+
+5. If the username or password is wrong, it denies access.
+
+
+Example Output
+
+Case 1: Admin Login
+
+Enter username: admin
+Enter password: admin123
+Login successful!
+Welcome, Admin! You have full access.
+
+Case 2: Wrong Password
+
+Enter username: user1
+Enter password: wrongpass
+Incorrect password. Access denied.
+
+Case 3: Guest Login
+
+Enter username: guest
+Enter password: guest
+Login successful!
+Welcome, Guest! You have read-only access.
+
+
+This is a simple if-else and nested if-else example in Python 3 with 
+practical use.
+
+
+users = { 
+     "admin": {"password":"admin123", "role": "admin"}, 
+     "user1": {"password": "userpass", "role": "user"}, 
+     "guest": {"password": "guest", "role": "guest"}
+ }
+
+  is this a dictionary in python3
+
+Explanation
+
+A dictionary in Python is a key-value pair data structure, and in your 
+example:
+
+The keys are usernames ("admin", "user1", "guest").
+
+The values are nested dictionaries containing password and role.
+
+
+
+Here's a Python authentication system using an empty dictionary and 
+if-else with nested if-else for role-based access control.
+
+#########
+Program: User Authentication System (Without Predefined Users)
+
+# Empty dictionary to store users
+users = {}
+
+# Function to register a new user
+def register():
+    username = input("Enter a new username: ")
+    
+    if username in users:
+        print("Username already exists! Try another.")
+        return
+    
+    password = input("Enter a password: ")
+    role = input("Enter role (admin/user/guest): ").lower()
+
+    if role not in ["admin", "user", "guest"]:
+        print("Invalid role! Defaulting to 'guest'.")
+        role = "guest"
+ users[username] = {"password": password, "role": role}
+    print("User registered successfully!\n")
+
+# Function to login a user
+def login():
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+
+    if username in users:
+        if users[username]["password"] == password:
+            print("Login successful!")
+
+            # Nested if-else for role-based access
+            if users[username]["role"] == "admin":
+                print("Welcome, Admin! You have full access.")
+            elif users[username]["role"] == "user":
+                print("Welcome, User! You have limited access.")
+            else:
+                print("Welcome, Guest! You have read-only access.")
+        else:
+            print("Incorrect password. Access denied.")
+    else:
+        print("Username not found. Please register first.")
+
+# Main function to provide menu options
+def main():
+	while True:
+        	print("\n1. Register")
+        	print("2. Login")
+        	print("3. Exit")
+
+        	choice = input("Choose an option: ")
+
+        	if choice == "1":
+            		register()
+        	elif choice == "2":
+            		login()
+        	elif choice == "3":
+            		print("Goodbye!")
+            		break
+        	else:
+            		print("Invalid choice. Try again.")
+
+# Run the program
+if _name_ == "_main_":
+    main()
+
+
+How It Works
+
+1. The program starts with an empty dictionary (users = {}).
+
+
+2. Registration:
+
+Users enter a username, password, and role.
+
+If the username exists, it prompts to choose another.
+
+The user is added to the dictionary.
+
+
+3. Login:
+
+If the username is found, it checks the password.
+
+Nested if-else controls access based on the role:
+
+Admin → Full access
+
+User → Limited access
+Guest → Read-only access
+
+
+
+4. The menu loops until the user chooses Exit.
+
+
+Example Run
+
+User Registration
+
+1. Register
+2. Login
+3. Exit
+Choose an option: 1
+Enter a new username: admin
+Enter a password: admin123
+Enter role (admin/user/guest): admin
+User registered successfully!
+
+User Login
+
+1. Register
+2. Login
+3. Exit
+Choose an option: 2
+Enter username: admin
+Enter password: admin123
+Login successful!
+Welcome, Admin! You have full access.
+
+Invalid Password
+
+Enter username: admin
+Enter password: wrongpass
+Incorrect password. Access denied.
+
+
+This is a basic authentication system using an empty dictionary.
+
+
+
