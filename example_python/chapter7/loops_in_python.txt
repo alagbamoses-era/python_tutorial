@@ -1,0 +1,402 @@
+Chapter 7: Loops in Python 
+
+Statements in a program you write are typically executed sequentially: 
+
+The first line of your code is executed first, followed by the second and 
+then the third and so on. However, there may arise a situation where you 
+need a line or a block of code to be executed severally. 
+
+Python offers a number of control structures that you can make your program 
+follow complicated execution paths, typically by repeating a line or a block 
+of code until a particular condition is met. This iteration or repetition of 
+code is referred to as looping in programming and we use a loop statement to 
+execute one or more statements multiple times. 
+
+The following flowchart diagram illustrates how a loop statement works:
+In Python, there are three ways you can create a loop or loops in your 
+code. 
+
+They include: 
+
+1. for loop: The for statement is used to execute a sequence of statements 
+	     multiple times and abbreviate the program code that handles 
+	     the loop variable. 
+
+2. while loop: The while statement is used to iterate one or a group of 
+	     statements for as long as a given condition evaluates to TRUE. 
+	     This type of loop tests a condition before the loop body is 
+	     executed. A variation of this loop is do… while. 
+
+3. Nested loop: A nested loop is created when you use one or more loop(s) 
+	     inside for, while, or do… while loop.
+
+The for Loop 
+
+We use a loop that begins with the statement for in Python to iterate 
+sequences such as lists, tuples, and strings, and other iterable objects. 
+
+The process by which a sequence is iterated is called traversal. 
+
+Syntax of for Loop 
+
+The syntax of the for loop looks like this: 
+
+for value in sequence: 
+      body_of_for 
+
+The value in the syntax is the value of the variable inside the sequence on 
+the current iteration. The loop will continue until the value reaches the 
+last item in the sequence.
+
+The body_of_for is the statement of the loop that is separated from the rest 
+of the code by indentation. 
+
+To make it easier to understand, below is a simplified flowchart figure of a 
+for loop 
+
+Exercise38: The for loop 
+This Program finds the sum of all the numbers in a list
+
+
+numbers = [3, 9, 16, 7, 8, 2, 5, 4, 10] #List of numbers 
+
+sum = 0 #variable to store the sum
+ 
+for val in numbers: #iterate over the list 
+      sum = sum + val 
+print ("The sum is", sum)
+
+
+
+The range() function 
+
+The range() function can be used to generate a sequence of numbers. For 
+instance range(10) will generate a list of 10 numbers between 0 and 9. 
+
+Note that this function does not store the values it generates in memory. 
+You can use start, stop, and step size to define the parameters of the 
+numbers to generate on the go or leave out the parameters to use the 
+defaults which is 1. 
+
+You can also use the list() function to force the range() function to output 
+all items 
+
+The syntax for the range() with parameters defined is: 
+
+range(<start>, <stop>, <step size>) 
+
+Exercise39: The range() function with for loop 
+
+total = 0 
+for x in range(10,20,2): 
+        total = total + x 
+         print (x, "\n") 
+print ("The totals is:", total)
+
+
+for… else loop 
+
+Just as we learnt in the previous chapter that the if decision making 
+structure can have an else block, the for loop can have the else part as 
+well. With this iteration structure, the else part is executed if the items 
+in the sequence defined in the for loop are exhausted. 
+
+Later on in this chapter, we will learn about the break statement which is 
+used to stop a loop. When the break statement is used in the for loop, the 
+else block will be ignored. This means that the else part of the for loop 
+will only run if no break of the loop occurs. 
+
+Exercise40: for… else loop 
+
+numbers = [0, 1, 3, 5, 6, 9, 10] 
+for i in numbers: 
+      print (i) 
+else: 
+       print("No more numbers to print.") 
+
+In this script, the for loop will print the value of i while iterating 
+through the list until the loop is exhausted. At this point, the else block 
+will be executed.
+
+while loop 
+
+In Python, the while loop tests a condition (an expression) and as long as 
+it returns TRUE, a block of code will be executed. This loop is used when 
+the number of times the block of code will be iterated before the condition 
+tests FALSE is not known beforehand. 
+
+Syntax of while loop 
+The syntax of the while loop takes this form: 
+
+while test_expression: 
+    body_of_while 
+
+In the code syntax above, the test expression will be checked first.
+
+The interpreter will only enter the body of the while loop only if the test 
+expression evaluates to TRUE. The test expression will be checked again 
+after one iteration and the process continues until such time that the 
+test expression evaluates to FALSE. 
+
+As with the previous for loop, the body of the while loop is identified by 
+its indentation. The first unindented line of code after the body_of_while 
+marks the end of the while loop. 
+
+Python will identify any non-zero value returned when it tests the while 
+expression as TRUE and zero and None values as FALSE. 
+
+Below is a flow chart of a while loop.
+
+
+Exercise41: While loop 
+
+x = int(input("Enter a value for x: ")) 
+sum = 0 
+i = 1 
+while i <= x: 
+     sum = sum + i 
+     print (sum) 
+     i = i + 1 # update counter 
+print ("The total sum is", sum) 
+
+Our script in Exercise41 adds natural numbers up to the number it prompts the user to enter. The test condition will evaluate to TRUE for as long as the 
+counter (variable i) is less than or equal to the value of x that the user 
+enters. 
+
+Note that we must increase the value of the counter variable in the body of 
+the while loop. This is very important to prevent an infinite (never-ending) 
+loop that could almost certainly cause the computer to freeze.
+
+While… else loop 
+
+Just as we saw in the for loop in the previous sub-chapter, with the while 
+loop, we can have an optional else block.
+
+The else part of the loop is executed only when the condition in the while 
+test evaluates to false. Also, as with the for loop, when we use a break 
+statement, the else block is skipped and the loop is terminated. Let us try 
+out how the else block works in Exercise42.py. 
+
+Exercise42: While… else loop 
+
+loops = int(input("Enter the number of times to loop: ")) 
+
+counter = 0 
+while counter < loops: 
+      counter = counter + 1 
+      print ("Iterations so far:", counter) 
+else: 
+       print("Maximum loops of", loops, "reached") 
+
+In this exercise, we use a counter variable to print the number of loops 
+until the maximum the user sets using the variable loops. When the maximum 
+number of loops is reached, the else statement is executed which is a string 
+of the maximum loops reached.
+
+
+
+Loop Control Statements 
+
+The break, continue, and pass statements in Python can be used to alter the 
+flow of a normal loop, altering the sequence of statement execution. Simply 
+put, these statements are used to terminate an iteration without checking 
+the test condition. When execution leaves a loop, all objects created in the 
+loop are destroyed. 
+
+The break statement 
+
+The break statement terminates the loop containing it and causes the 
+statement immediately following the body of the loop to be executed next. 
+If the break statement is used inside a nested loop, it will only terminate 
+the innermost loop. 
+
+The syntax of break is just the word break. In a flow chart, the break 
+statement takes this structure:
+
+
+
+Exercise43: break statement 
+
+for val in "Hello World!": 
+      if val == "r": 
+            break 
+      print (val) 
+print ("Search letter 'r' found!") 
+
+In this exercise, we iterate though the string sequence “Hello World!”, the 
+condition being checking if the current character is “r” after which the 
+current letter is printed. When we find “r”, the loop breaks and terminates. 
+
+The statement immediately following the body of the loop is executed.
+
+
+The continue statement 
+
+The continue statement is used to skip the remainder of the code within the 
+loop body for the current iteration only. Unlike break, continue does not 
+terminate the loop; the test condition will be rechecked again prior to 
+reiteration. 
+
+The syntax of the continue statement is the word continue. When presented in 
+a flowchart, the continue structure looks like this: 
+
+Exercise44: continue statement 
+
+for val in "Hello World!": 
+       if val == "r": 
+             continue 
+       print (val) 
+print ("Search letter 'r' found!") 
+
+Exercise44.py is a lot like the previous exercise, except that we use 
+continue in place of break. Do you notice the difference in the output result?
+
+##############
+The pass statement 
+
+In Python, When the pass statement is used in an empty class or function, it 
+looks like this: 
+
+class My_Class: 
+       pass 
+
+
+def function(args): 
+     pass
+
+
+Here’s a simple port scanner that demonstrates if, elif, else, while, for, 
+continue, break, and pass:
+
+Ethical Python Port Scanner
+
+import socket
+
+def port_scan(target, start_port, end_port):
+    print(f"Scanning {target} from port {start_port} to {end_port}")
+
+    for port in range(start_port, end_port + 1):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(0.5)  # Set a timeout for responsiveness
+        
+        if sock.connect_ex((target, port)) == 0:
+            print(f"[+] Port {port} is OPEN")
+        else:
+            continue  # Skip to the next port
+        
+        sock.close()
+
+# Main loop to enter target details
+while True:
+    target_ip = input("Enter target IP (or type 'exit' to quit): ")
+
+    if target_ip.lower() == "exit":
+        print("Exiting program...")
+        break  # Exit the loop
+    try:
+        start_port = int(input("Enter start port: "))
+        end_port = int(input("Enter end port: "))
+
+        if start_port > end_port:
+            print("Invalid range. Start port should be less than or equal 
+		  to end port.")
+            continue  # Restart the loop
+
+        port_scan(target_ip, start_port, end_port)
+
+    except ValueError:
+        print("Invalid input. Please enter numeric values.")
+        pass  # Placeholder for future error handling
+
+print("Program terminated.")
+
+If you're looking for the IP addresses of public websites, you can find them using the nslookup, dig, or ping commands in Linux. Here are some examples:
+
+Using dig:
+
+dig +short google.com
+
+dig +short facebook.com
+
+dig +short github.com
+
+Using nslookup:
+
+nslookup google.com
+
+nslookup facebook.com
+
+Using ping:
+
+ping -c 1 google.com
+
+ping -c 1 facebook.com 
+
+
+Let's break it down:
+
+1. socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+This creates a new socket object.
+
+socket.AF_INET: Specifies the IPv4 address family. (For IPv6, use 
+socket.AF_INET6.)
+
+socket.SOCK_STREAM: Specifies a TCP socket (for UDP, use socket.SOCK_DGRAM).
+
+
+2. settimeout(seconds)
+
+Sets a timeout for socket operations.
+
+If the connection attempt takes longer than the specified time, it fails 
+instead of hanging.
+
+Example: sock.settimeout(0.5) sets a 0.5-second timeout for each port scan.
+
+
+3. connect_ex((target, port))
+
+Attempts to connect to a given IP and port.
+
+Returns 0 if the connection is successful (port is open).
+
+Returns an error code if the connection fails (port is closed or filtered).
+
+Unlike connect(), it doesn’t raise an exception on failure—just returns an 
+error code.
+
+
+
+
+try and except in Python
+
+The try and except blocks are used for exception handling in Python. They 
+allow a program to catch and handle errors instead of crashing.
+
+
+
+Syntax:
+
+try:
+    # Code that may cause an error
+    risky_operation()
+except SomeError:
+    # Code that runs if an error occurs
+    handle_error()
+
+
+
+Optional: Using finally (Always Runs)
+
+try:
+    file = open("test.txt", "r")
+except FileNotFoundError:
+    print("File not found!")
+finally:
+    print("This always runs, whether an error occurred or not.")
+
+
+
+
+
