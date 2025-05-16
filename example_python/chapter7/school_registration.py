@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+def db():
+    with open('database.txt', 'w+') as f:
+        f.write(str(student_names))
 
 student_names = {}
 #all_students_min = 0
@@ -74,6 +77,7 @@ def main():
         elif choice == '2':
             view_register_logs()
         elif choice == '3':
+            db()
             break
         else:
             print('Invalid choice. Try again.')

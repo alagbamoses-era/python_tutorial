@@ -1,0 +1,449 @@
+Chapter 8. Input, Output, Files and Import 
+
+In this chapter, we are going to focus on two in-built functions in Python 
+that we have used throughout the book so far: the print() function that 
+displays text on the screen and the input() function that captures a user’s 
+input via the keyboard. We will also look at how to use import to call 
+in-built modules to use in our programs.
+
+Output Using the print() function 
+
+You are probably already familiar with the print() function because we have 
+used it in almost every exercise we have carried out so far. This function 
+is used to output data to the standard output device, which in our case, is 
+the computer screen. We can also print to a file (we will cover this later 
+in this chapter).
+ 
+So far, we know that the syntax of the print function is print (). The 
+actual syntax of this function is: 
+
+Print (*objects, sep=' ', end='\n', file=sys.stdout, flush=False) 
+
+In this statement: 
+
+1. objects refers to the value or values to be printed.
+
+2. sep refers to the separator used between the values which is a space 
+character by default. 
+
+3. end is printed after all the values are printed. This is a new line by 
+default. 
+
+
+4. file is the default object where the values are printed. sys.stdout is 
+the computer screen. 
+
+5. flush writes out any data lingering in the program buffer to the standard 
+output file. 
+
+Let us test out these parameters in a simple exercise. 
+
+Exercise45: The print() function parameters 
+
+print (1, 2, 3, 4, 5) 
+print (1,2,3,4, sep = '*') 
+print (1,2,3,4, sep = '#', end='&') 
+
+Notice how the new parameters affect the output of the print() function? It 
+is good to know! 
+
+Exercise46: The print() function 
+
+name = "John" 
+print ("1. My name is" + name) 
+print ("2. My name is", name)
+
+
+When you run the script above, you will notice that the print() function 
+adds a space between the string and the variable name when separated by a 
+comma in the second output. When we use a + operator to combine the string 
+and variable, no space is added.
+
+Output formatting 
+
+Sometimes you may want to format your program output to add some aesthetic 
+value or to meet your program’s requirements. You can achieve this using the 
+str.format() method which is visible to any string object. 
+
+Exercise47: str.format() 
+
+name = "John" 
+age = 21 
+print ("My name is {} and I am {} years old.".format(name,age)) 
+
+The curly braces ({}) in this exercise are used as placeholders. It also 
+possible to specify the order in which the formatted characters are printed 
+using tuple index numbers. Let us try it in Exercise48. 
+
+Exercise48: String formatting with placeholders 
+
+print ("My name is {0} and I am {1} years old.".format("John", 21)) 
+print ("I am a {1} year old programmer named {0}.".format("John", 21))
+
+
+We can even go a step further and use keyword arguments in formatting a 
+string output as in Exercise49. 
+
+Exercise49: String formatting with arguments 
+
+print ("Hello. My name is {name}, and I am a 
+{occupation}.".format(occupation = "programmer", name = "John")) 
+
+
+Input 
+
+Most of the exercises we have done so far have had static variables, meaning 
+that the values of the variables were hard coded in the source code of the 
+programs. In a few of them, we have asked the user to enter an integer value 
+which we assigned a variable. 
+
+In Python, we use the input() function to prompt the user to enter a value. 
+The syntax looks like this: 
+
+Input ("The prompt to be displayed on screen: ") 
+
+The string “The prompt to be displayed on screen:" is optional. 
+Once the user enters data, we can then use the data conversion methods we 
+learnt in chapters 4 and 5 to convert it into the type we can use. 
+
+Exercise50: input and output 
+Let us bring together a couple of things we have learnt so far into one 
+exercise. 
+
+name = str(input("Enter your name: ")) 
+
+age = int(input("How old are you?: ")) 
+
+sex = str(input("Enter your gender M or F: ")) 
+
+location = str(input("Which city do you live in: ")) 
+
+if sex == "M" or "m": 
+    gender = "male" 
+elif sex == "F" or "f": 
+    gender = "female" 
+else: 
+    gender = "invalid" 
+
+print ("{}, you are a {} old {} from {}.".format(name, age, gender, 
+location))
+
+Python File Input and Output 
+
+In modern computing, a file is a named location on a disk where related 
+information is stored. The data is stored permanently in a non-volatile 
+memory such as a hard disk drive or a flash memory disk. 
+
+The computer volatile storage memory known as the Random Access Memory (RAM) 
+stores data temporarily. This means that the information is lost when power 
+to the storage location is lost such as when the computer is turned off. 
+
+When we want to read, we must first open it by loading into the RAM and when 
+we are done making changes, we must save it to the permanent memory to 
+preserve its contents. In Python, this operation is executed in this 
+three-step order: 
+
+1. The file is opened. 
+
+2. The file is read and/or written into. 
+
+3. The file is closed. 
+
+When a file is closed, the resources tied to it are freed.
+
+
+
+
+Opening a file 
+
+Python has a built-in open() function that is used to open a file from the 
+permanent memory. When used, this function returns a file object called a 
+handle that can be used to read or modify the file contents. 
+
+The syntax to open a text file named poem would look like this: 
+
+f = open("poem.txt") #to open a file in current directory 
+
+f = open(poem.txt, "r",) #to open a file in current directory for reading 
+
+f = open("/Python33/poem.txt") #to specify full path 
+
+We can also specify the mode in which we want to open a file. The mode is 
+basically a specification whether to open the file in read (‘r’), 
+write (‘w’), or append (‘a’) file modes. 
+The default mode is read in text mode which reads the contents of the file 
+as strings. When working with non-text files such as executable (.exe) and 
+image files, you can specify binary mode to return content in byte form. 
+
+
+Exercise51: Opening a text file 
+If you downloaded the bonus archive with .py files thast comes with this 
+book, there should be a text file named poem.txt in your working directory. 
+If not, create a text file named poem.txt to use in this exercise. 
+
+f = open("poem.txt", "r") 
+poem = f.read(96); 
+print (poem) 
+
+In this exercise, the script opens the text file named poem.txt in read only 
+mode, and assigns the first 96 string characters of the file to a variable 
+called poem. We use the print() method to display what our program has read.
+
+
+
+The table below summarizes the file modes you can specify when opening a file 
+and what they mean. 
+
+
+Mode          Description 
+
+'r'           This is the default open mode. It opens a file for reading. 
+
+'w'	      Opens a file for writing. Truncates the file if it exists or 
+	      creates a new one if it does not. 
+
+'x'           Opens a file for exclusive creation. The operation fails if the 		    file already exists. 
+
+'a'           Opens for appending at the end without truncation. Creates a new 		    file if it does not exist. 
+
+'t' 		This is the default mode. It opens file in text mode. 
+
+'b'           	Opens file in binary mode. 
+
+'+'          	Opens a file for updating (enables reading and writing) 
+
+rb           	Opens a file as read-only in binary format. 
+
+r+           	Opens a file for reading and   writing and places the file 
+	     	pointer at the beginning of the file 
+
+rb+          	Opens a file for reading and writing in binary format, the 
+		pointer placed at the beginning of the file. 
+
+wb          	Opens a file for writing only in binary format 
+
+w+          	Opens a file for writing and  reading. If file already exists, 		      it is overwritten. If it does not, a new file is created for 
+		reading and writing. 
+
+wb+       	Opens a file for writing and reading in binary format. If 
+		file already exists, it is overwritten. If it does not, a new 		      file is created for reading and writing. 
+
+ab         	Opens a file for appending in  binary format. The file pointer 		      is positioned at the end of the file if the file exists. If 
+		the file does not, a new file is created for writing. 
+
+
+a+        	Opens a file for appending and  reading, the file pointer 
+		positioned at the end of the file. If the file does not, a 
+		new file is created for reading and writing. 
+
+
+ab+     	Opens a file for appending and reading in binary format, the 
+		file pointer positioned at the end of the file. If the file 
+		does not, a new file is created for reading and writing.
+
+
+
+Writing to a File 
+
+To enable writing on to a file, you must open an existing file in write ‘w’, 
+append ‘a’, or in exclusive creation ‘x’ modes. You must be careful when 
+opening an existing file in ‘w’ mode because it will overwrite the existing 
+file content, erasing everything that was previously in it. 
+
+To write a string of text or a sequence of bytes (when working with a binary 
+file), you will use the write() method. Using this method returns the number 
+of characters written on to the file. The syntax for the write() method 
+looks like this: 
+
+file.write(string); 
+
+Exercise52: Writing to a file 
+
+file = open("myfile.txt", "w") 
+
+file.write("The purple cow poem is a short nonsense poem first published in 
+1895 written by American writer Gelett Burgess"); 
+file.close() 
+
+
+text = open("myfile.txt", "r+") 
+
+mytext = text.read(120); 
+print (mytext) 
+
+text.close() 
+
+In exercise52, we open a file named myfile.txt in write mode. However, 
+because the file does not exist in the directory, one is created. We then 
+write a string of text and close the file using the close() method. The 
+statements below close are meant to show that we have indeed created the 
+file and saved text in it, which we then display on the screen using the 
+print() method. 
+
+Exercise53: Writing multiple lines of string to file 
+
+with open ("test.txt", "w", encoding = "utf-8") as file: 
+
+file.write ("This is a unique file called test.txt\n") 
+
+file.write ("We can choose to add a second line of text\n") 
+
+
+file.write ("Or go all out and add another one\n") 
+
+Exercise53 creates a new file named test.txt using the utf-8 encoding. If a 
+file called textfile.txt exists in the directory we are working on, it will 
+be overwritten. We then use the write() method to write strings of text into 
+it.
+
+Reading From a File 
+
+We must open an existing file in reading mode to be able to read its contents. 
+
+There are several ways we can achieve this, some of which we have used in 
+the previous exercises already. We can use the read(size) method to specify 
+the amount of data to read or leave the brackets empty to let the method read to the end of the file and return the string of text. 
+
+We can also change the current file position using the seek() method or the 
+tell() method to return the current position of the cursor (in bytes).
+
+The syntaxes of these methods look like these: 
+
+file.tell() #This returns the position of the current file. 
+
+File.seek(0) #This method brings the cursor to the start of the file. 
+Can you practice using these methods on the text files we have created so 
+far? 
+
+You can use these methods with the print() method to print out the result. 
+For instance, your syntax will look like this: 
+
+text.tell() 
+print(text.read(96))
+
+
+Closing a file 
+
+When you are done manipulating the contents of a file, you must properly 
+close it to release the computer’s memory resources. Remember that a file is 
+loaded to the primary memory (RAM) when it is opened, and although Python 
+has an in-built garbage collector that cleans up unreferenced objects 
+periodically, your program should not rely on it to close files no longer 
+in use. 
+Opened and created files are closed using the method close(). The syntax 
+looks like this: 
+
+file = open("test.txt",encoding = 'utf-8') 
+
+# Manipulate the contents of your file here. Remember to save them. 
+file.close() 
+
+This method of closing a file is completely safe. However, in some cases, 
+errors such as encoding type may cause an exception when the file is closing, resulting in code existing on memory without the file being properly closed. 
+At advanced levels of studying Python, you will discover a try… finally 
+structure of handling exceptions that deals with such issues. The code would 
+look like this: 
+
+
+try: 
+    file = open("test.txt",encoding =  'utf-8') 
+# Manipulate the contents of your file here. Remember to save them. 
+finally: 
+    file.close()
+
+Python File Methods 
+
+There are a number of methods in Python that you can use with the file object. 
+
+We have used some of them already in previous exercises. The table below is a 
+presentation of the rest of the methods you should use when practicing with 
+text files. 
+
+Method          Description 
+
+tell()        	Returns the current file location. 
+
+fileno()       	Returns an integer number of the file descriptor. 
+
+read(x)       	Reads at most ‘x’ characters form the file. If x is not 
+		defined or negative, reads till end of file. 
+
+writable()      Returns TRUE if the file stream can be written to. 
+
+close()       	Closes an open file. If the file is already closed, it has no 
+		effect. 
+seek(offset,from=SEEK_SET)      Changes the file position to ‘offset’ bytes, 
+				in reference to ‘from’ (start, current, end). 
+
+write(x)      	Writes string ‘x’ to the file then returns the number of 
+		characters written. 
+
+writelines(lines)      Writes a list of lines to the file. 
+
+seekable()      Returns TRUE if the file stream supports random access. 
+
+detach()      	Separates and returns the underlying binary buffer from the 
+		TextIOBase. 
+
+isatty()      	Returns TRUE if the file has an interactive stream. 
+
+readable()      Returns TRUE if the file stream can be read. 
+
+truncate(size=None)      Resizes the file stream to defined size in bytes. 
+			 If the size is not specified, it resizes to current 
+			 location. 
+
+flush()   	  Flushes the file stream write buffer. 
+
+readline(x=-1)    Reads and returns one line from the file or if specified, 
+		  at most x bytes. 
+
+readlines(x=-1)   Reads and returns a list of lines from the file. Returns at 			most x bytes or characters if x is specified.
+
+Importing Modules 
+
+When you begin gaining more experience and learning even more practical 
+lessons on programming using Python, you will begin creating bigger and more 
+complex programs. With time, you will find it necessary to break these 
+scripts into different modules. 
+
+A module is a file that contains the definitions and statements that your 
+program needs. Python modules have a filename with an extension .py, just 
+like the scripts you have been creating in exercises in this book. 
+
+Definitions contained inside a module can be imported and used in another 
+module or called by the interactive Python interpreter. We use the import 
+keyword to achieve this. Let us try it in the next exercise. 
+
+Exercise54: Importing Modules 
+
+import math 
+print (math.pi) 
+
+When you run the above script, it will display the value of pi on the screen. 
+
+
+This is because Python has imported the math module, which contains pi. 
+
+We can also import specific attributes and functions rather than the entire 
+module. TO achieve this, we use the from keyword. Here is an example. 
+
+from math import pi 
+print (pi) 
+
+When you use the import keyword to import modules, functions, or attributes 
+of a module, Python looks at several locations defined in sys.path. You can 
+check these locations using by importing the sys module then typing sys.path, like this: 
+
+import sys 
+sys.path 
+
+When you become a seasoned Python developer, you will be able to add your 
+own locations to the sys.path locations as well.
+
+
+
+
+
+
+

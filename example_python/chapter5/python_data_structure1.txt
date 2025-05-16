@@ -588,4 +588,450 @@ data = {frozenset({1, 2, 3}): "Group 1", frozenset({4, 5}): "Group 2"}
 print(data[frozenset({1, 2, 3})])  # Output: Group 1
 
 
+STACK
+
+1. Using list (Built-in)
+
+Python’s list can be used as a stack using append() to push elements 
+and pop() to remove them.
+
+stack = []
+
+# Push elements
+stack.append(10)
+stack.append(20)
+stack.append(30)
+
+# Pop element
+print(stack.pop())  # Output: 30
+print(stack)        # Output: [10, 20]
+
+Pros: Simple and efficient.
+
+Cons: pop(0) (removing from front) is slow because it requires shifting 
+elements. 
+
+
+2. Using collections.deque (Recommended)
+
+Python's collections.deque is optimized for fast append and pop operations 
+from both ends.
+
+from collections import deque
+
+stack = deque()
+
+# Push elements
+stack.append(10)
+stack.append(20)
+stack.append(30)
+
+# Pop element
+print(stack.pop())  # Output: 30
+print(stack)        # Output: deque([10, 20])
+
+Pros: Faster than list for stack operations (O(1) for append() and pop()).
+
+Cons: Slightly more complex than list.
+
+
+
+3. Using queue.LifoQueue (Thread-Safe)
+
+For thread-safe stacks, use queue.LifoQueue.
+
+from queue import LifoQueue
+
+stack = LifoQueue()
+
+# Push elements
+stack.put(10)
+stack.put(20)
+stack.put(30)
+
+# Pop element
+print(stack.get())  # Output: 30
+
+Pros: Thread-safe.
+
+Cons: Slightly slower due to locking.
+
+
+
+
+
+4. Custom Stack Class
+
+You can implement a stack using a class for better abstraction.
+
+class Stack:
+    def _init_(self):
+        self.stack = []
+
+    def push(self, item):
+        self.stack.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.stack.pop()
+        raise IndexError("Pop from empty stack")
+
+    def peek(self):
+        if not self.is_empty():
+            return self.stack[-1]
+        return None
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def size(self):
+        return len(self.stack)
+
+# Usage
+s = Stack()
+s.push(10)
+s.push(20)
+print(s.pop())  # Output: 20
+
+Pros: Encapsulates stack behavior in a reusable class.
+
+Cons: Slightly more code.
+
+
+##### SPECIAL NOTE ##########
+In Python, self and _init_ are commonly used in object-oriented 
+programming (OOP) when working with classes.
+
+
+---
+
+1. self
+
+self represents the instance of the class.
+
+It allows you to access attributes and methods of the class in Python.
+
+It must be the first parameter of instance methods (though you can 
+name it anything, self is the convention).
+
+Example:
+
+class MyClass:
+    def _init_(self, name):  # Constructor
+        self.name = name  # Assign to instance attribute
+
+    def greet(self):  # Instance method
+        print(f"Hello, {self.name}!")
+
+obj = MyClass("Alice")  # Create an object
+obj.greet()  # Output: Hello, Alice!
+
+Here, self.name refers to the instance attribute, and self.greet() 
+allows access to instance methods.
+
+2. _init_ (Constructor)
+
+_init_ is a special method (also called a constructor).
+
+It is automatically called when an object of a class is created.
+
+Used to initialize object attributes.
+
+
+Example:
+
+class Car:
+    def _init_(self, brand, model):
+        self.brand = brand  # Instance variable
+        self.model = model
+
+    def details(self):
+        print(f"Car: {self.brand} {self.model}")
+
+# Creating objects
+car1 = Car("Toyota", "Corolla")
+car2 = Car("Honda", "Civic")
+
+car1.details()  # Output: Car: Toyota Corolla
+car2.details()  # Output: Car: Honda Civic
+
+Here, _init_ sets up instance attributes brand and model when a 
+Car object is created.
+
+Key Points
+
+self: Refers to the instance of the class and is used to access 
+attributes and methods.
+
+_init_: Initializes object attributes when a new instance is created.
+
+
+
+
+Recommendation:
+
+Use deque for performance.
+
+Use LifoQueue for thread-safety.
+
+Use a custom class for better structure
+
+
+Queue Data Structure in Python 3
+
+A queue is a First In, First Out (FIFO) data structure where elements 
+are added at the rear and removed from the front.
+
+Python provides multiple ways to implement a queue:
+
+
+
+
+1. Using collections.deque (Recommended)
+
+deque (double-ended queue) is fast and efficient for queue operations.
+
+from collections import deque
+
+queue = deque()
+
+# Enqueue (add elements)
+queue.append(10)
+queue.append(20)
+queue.append(30)
+
+# Dequeue (remove elements)
+print(queue.popleft())  # Output: 10
+print(queue)            # Output: deque([20, 30])
+
+
+
+Pros:
+
+append() and popleft() are O(1) operations (fast).
+
+Supports double-ended queue operations.
+
+Lightweight and thread-safe for simple use cases.
+
+
+
+
+2. Using queue.Queue (Thread-Safe)
+
+Python’s queue.Queue is useful in multithreading as it handles 
+locks automatically.
+
+from queue import Queue
+
+q = Queue()
+
+# Enqueue
+q.put(10)
+q.put(20)
+q.put(30)
+
+# Dequeue
+print(q.get())  # Output: 10
+print(q.get())  # Output: 20
+
+✅ Pros:
+
+Thread-safe (handles locks automatically).
+
+
+Supports blocking operations (get() waits if empty).
+❌ Cons:
+
+Slightly slower than deque due to locking overhead.
+
+
+
+3. Using list (Not Recommended)
+
+You can use a Python list, but removing from the front is slow (O(n)).
+
+queue = []
+
+# Enqueue
+queue.append(10)
+queue.append(20)
+queue.append(30)
+
+# Dequeue (slow)
+print(queue.pop(0))  # Output: 10
+
+❌ Cons:
+
+pop(0) shifts all elements, making it O(n) (slow).
+
+
+Priority Queue (queue.PriorityQueue)
+
+For priority-based queues, use PriorityQueue, where elements are sorted.
+
+from queue import PriorityQueue
+
+pq = PriorityQueue()
+
+# Enqueue (priority, value)
+pq.put((2, "Task A"))
+pq.put((1, "Task B"))  # Higher priority (1 < 2)
+pq.put((3, "Task C"))
+
+# Dequeue (sorted by priority)
+print(pq.get())  # Output: (1, "Task B")
+print(pq.get())  # Output: (2, "Task A")
+
+✅ Pros:
+
+Automatically sorts elements by priority.
+❌ Cons:
+
+Slower than deque for simple FIFO operations.
+
+
+
+When To Use Which Queue
+
+Queue Type             Use Case
+
+deque                  best for general-purpose
+                       queues (fast and
+                       efficient).
+
+queue.Queue           best for multithreading
+                      (Thread-safe).
+
+priorityQueue          use when
+                       priority matter.
+
+
+list                   Not recommended
+                       for quueue (slow).
+
+
+For most cases, deque is the best option unless you 
+need thread safety or priority-based ordering.
+
+
+
+STACK - LAST IN. FIRST OUT (LIFO)
+QUEUE - FIRST IN, FIRST OUT (FIFO)
+
+
+
+
+
+Here’s a custom queue class in Python with enqueue() and 
+dequeue() methods.
+
+
+. Simple Queue Using list
+
+class Queue:
+    def _init_(self):
+        self.items = []  # Initialize an empty queue
+
+    def enqueue(self, item):
+        """Add an item to the end of the queue"""
+        self.items.append(item)
+
+    def dequeue(self):
+        """Remove and return the front item from the queue"""
+        if not self.is_empty():
+            return self.items.pop(0)  # Removes the first element
+        return None  # Return None if queue is empty
+
+
+def is_empty(self):
+        """Check if the queue is empty"""
+        return len(self.items) == 0
+
+    def peek(self):
+        """Get the front item without removing it"""
+        return self.items[0] if not self.is_empty() else None
+
+    def size(self):
+        """Return the number of elements in the queue"""
+        return len(self.items)
+
+    def _str_(self):
+        return f"Queue: {self.items}"
+
+
+# Example Usage
+q = Queue()
+q.enqueue(10)
+q.enqueue(20)
+q.enqueue(30)
+
+print(q)           # Output: Queue: [10, 20, 30]
+print(q.dequeue()) # Output: 10 (removes first element)
+print(q)           # Output: Queue: [20, 30]
+print(q.peek())    # Output: 20
+print(q.size())    # Output: 2
+
+✅ Pros: Simple and easy to understand.
+❌ Cons: pop(0) is O(n) since all elements shift after removal.
+
+
+
+print(q)           # Output: Queue: [10, 20, 30]
+print(q.dequeue()) # Output: 10 (removes first element)
+print(q)           # Output: Queue: [20, 30]
+print(q.peek())    # Output: 20
+print(q.size())    # Output: 2
+
+✅ Pros: Simple and easy to understand.
+❌ Cons: pop(0) is O(n) since all elements shift after removal.
+
+
+
+
+2. Efficient Queue Using collections.deque
+
+For better performance (O(1) enqueue and dequeue), use deque.
+
+from collections import deque
+
+class Queue:
+    def _init_(self):
+        self.items = deque()
+
+    def enqueue(self, item):
+        self.items.append(item)  # O(1) time complexity
+
+    def dequeue(self):
+        return self.items.popleft() if not self.is_empty() else None  # O(1) time complexity
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def peek(self):
+        return self.items[0] if not self.is_empty() else None
+
+    def size(self):
+        return len(self.items)
+
+    def _str_(self):
+        return f"Queue: {list(self.items)}"
+
+
+# Example Usage
+q = Queue()
+q.enqueue("A")
+q.enqueue("B")
+q.enqueue("C")
+
+print(q)           # Output: Queue: ['A', 'B', 'C']
+print(q.dequeue()) # Output: 'A' (removes first element)
+print(q)           # Output: Queue: ['B', 'C']
+
+✅ Pros: Faster than list.pop(0), O(1) enqueue and dequeue.
+✅ Best for large queues.
+
+
+
+
 

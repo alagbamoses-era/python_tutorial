@@ -1,0 +1,246 @@
+Chapter 9. Functions and Arguments 
+
+A function is a block of related statements that performs a single but very 
+specific task. Functions are used to provide modularity to complex 
+applications and are defined to be re-usable. Functions such as print() and 
+import() are examples of built-in functions that come with the development 
+platform. 
+
+Python allows you to create your own functions that go a long way to help you 
+break your program into smaller chunks. As you create complex applications, 
+you will find it necessary to create functions that will not only make your 
+applications more organized and manageable but also save you time in the 
+future because you will have chunks of reusable code saved away.
+
+Syntax of a Function 
+
+The syntax of a function looks like this: 
+
+def function_name(parameters): 
+      """docstring""" 
+      statement(s) 
+      return [expression] 
+
+Here is a breakdown of what the syntax of a function: 
+
+1. def keyword: This marks the beginning of the function header.
+ 
+2. function_name: This is a unique name that identifies the function. The 
+   rules of the function name are almost similar to those of a variable we 
+   learnt at the beginning of this book.
+ 
+3. parameters or arguments: Values are passed to the function by enclosing 
+   them in parentheses (). Parameters are optional. 
+
+4. The colon marks the end of the function header. 
+
+5. """docstring""": (Docstring) is an optional documentation string. It 
+   describes the purpose of the function. 
+
+6. statement(s):There must be one or more valid statements that make up the 
+   body of the function. Notice that the statements are indented (typically 
+   tab or four spaces). 
+
+7. There may be an optional return statement that returns a value or values 
+   from the function.
+
+
+Creating and calling a function 
+
+To use a function you create in your script, you will need to call it from the Python prompt, program, or function. 
+
+Exercise55: Creating a function 
+
+def greeting(name): 
+      """This function greets the user
+      when the person's name is
+      passed in as a parameter""" 
+      print ("Greetings,", name + "!") 
+
+You can call a function by simply typing its name along with the appropriate 
+parameters. 
+
+Modify the previous Exercise55 code to see how you can call the function 
+greeting. 
+
+Exercise56: Calling a function 
+
+def greeting(name): 
+      """This function greets the user    
+      when the person's name is   
+      passed in as a parameter""" 
+
+      print ("Greetings,", name + "!") 
+
+username = str(input("Enter your name: ")) 
+greeting(username) 
+
+The code in Exercise55 first defines a function called greeting, which 
+requires one argument, name. It will prompt the user to enter a string, 
+which will be assigned the variable username and used as the argument when 
+the function greeting is called.
+
+
+Docstring 
+
+The first string of text immediately after the function header is called the 
+documentation string, or in short, docstring. This section of the function is 
+optional and briefly explains what the function does. It is a good practice 
+to include a descriptive docstring whenever you create a new function because 
+you, or another programmer going through your code at a later time, may need 
+it to understand what the function does. Always document your code! 
+We have exhaustively explained what our greeting function does. As you can 
+see, we used a triple quote string to make it possible for the description to 
+extend to multiple lines. Within the attribute of the function, the docstring 
+is available as _doc_. 
+
+For instance, the greeting function would appear in the Python shell print() 
+function output as in Exercise57. 
+
+Exercise57: Printing the docstring
+
+def greeting(name): 
+     """This function greets the user
+     when the person's name is
+      passed in as an argument.""" 
+
+     print ("Greetings,", name + "!") 
+
+print (greeting._doc_) 
+
+
+The return statement 
+
+The optional return statement in a function is used as an exit to return 
+execution back to where from it was called. The syntax of the return statement as we have seen takes this form: 
+
+return [expression_list] 
+
+The return statement may contain expressions that get evaluated to return a 
+value. If there is no expression in the statement or when the return statement is not included in the function, the defined function will return a None 
+object when called. Our greeting function in Exercises 55 through 57 return 
+a value of None because we have not included a return statement. 
+
+Exercise58: The return statement 
+
+
+
+def agegroup_checker(age): 
+     """This function returns the 
+     user's age group name based 
+     on the age entered.""" 
+
+     if age >= 18: 
+         agegroup = "Adult" 
+    
+    elif age >= 13: 
+         agegroup = "Teenager" 
+
+    elif age >=0: 
+         agegroup = "Child" 
+
+    else: 
+         agegroup = "Invalid" 
+
+    return (agegroup) 
+
+age = int(input("Enter your age to check age group:")) 
+
+print ("Your age group is:", agegroup_checker(age))
+
+
+Function Arguments 
+
+In Python, you can call a function using any of these four types of formal 
+arguments: 
+
+• Default arguments. 
+
+• Required arguments 
+
+• Keyword arguments 
+
+• Variable-length arguments
+
+
+Default arguments 
+
+A default argument assumes the default value if no value is specified within 
+the function’s call parameters. 
+
+Exercise59: Default arguments 
+
+def studentinfo(name, gender = "Male"): 
+     """This function prints info passed 
+     in the function parameters.""" 
+     print ("Name:", name) 
+     print ("Gender:", gender) 
+     return; 
+
+studentinfo(name = "John") 
+
+studentinfo(name = "Mary", gender = "Female") 
+
+In Exercise59, you can see how we have specified the default value for the 
+parameter gender as “Male”. When we do not define the gender within one of 
+the values, the default value is used.
+
+
+Required arguments 
+
+Required arguments must be passed to the function in the exact positional 
+order to match the function definition. If the arguments are not passed in the right order, or if the arguments passed are more or less than the number 
+defined in the function, a syntax error will be encountered.
+
+Keyword arguments 
+
+Functions calls are related to keyword arguments. This means that when a 
+keyword argument is used in a function call, the caller should identify the 
+argument by the parameter name. With these arguments, you can place arguments 
+out of order or even skip the entirely because the Python interpreter will be 
+able to match the values provided with the keywords provided. 
+
+Exercise60: Keyword arguments 
+
+def studentinfo(name, age): 
+       "This function prints info
+        passed in the function
+        parameters." 
+       print ("Name:", name, "Age:", age) 
+      return; 
+
+studentinfo (age = 21, name = "John") 
+
+Note that with keyword arguments in Exercise60, the order of the parameters 
+does not matter.
+
+Variable-length arguments 
+
+In some cases, a function may need to process more arguments than the number 
+you specified when you defined it. These variables are known as variable- 
+length arguments. Unlike required and default arguments, variable-length 
+arguments can be included in the definition of the function without being 
+assigned a name. 
+
+The syntax for a function with non-keyword variable-length arguments takes 
+this format: 
+
+def studentinfo(name, age): 
+     "This function prints info passed
+      in the function parameters." 
+
+      print ("Name:", name, "Age:", age) 
+     return; 
+
+studentinfo (age = 21, name = "John") 
+
+Notice that an asterisk is placed right before the tuple name that holds the 
+values of non-keyword variable arguments. If no additional arguments are 
+defined when the function is called, the tuple will remain empty.
+
+
+In Python 3, you can define functions that accept a variable number of arguments using:
+
+*args for positional arguments
+
+**kwargs for keyword arguments
