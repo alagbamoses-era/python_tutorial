@@ -1252,7 +1252,7 @@ class AnimalFactory:
             return Cat()
 
 
-####### continueeee #########
+#
 Observer Pattern
 
 An object (subject) notifies observers when its state changes.
@@ -1333,9 +1333,109 @@ coffee = MilkDecorator(Coffee())
 print(coffee.cost())  # Output: 7
 
 
-
+###### continue #######
 
 Python OOP – Real-World Applications
+
+
+
+Here's a clear and concise difference between API and Modules:
+
+
+                       API
+
+ Feature --> API (Application Programming Interface)
+
+1. Definition : A set of define rules and protocols to interact with software 
+components or systems.
+
+2. Purpose : Allows different software components or systems to communicate 
+or interact.
+
+3. Usage : Used to access functionalities of external software/services 
+(e.g -- > web APIs, OS APIs).
+
+4. Scope : External interface -- often between different systems or apps.
+
+5. Example : Using the Twitter API to post a tweet from your app.
+
+		
+			
+				MODULE
+
+1. Definition : A self-contained piece of code (file/package) that contains 
+functions, classes, or variables.
+
+2. Purpose : Organizes and reuses code within a program or project.
+
+3. Usage : Used to structure code and avoid repetition.
+
+4. Scope : Internal - used within single program or app
+
+5. Example : Importing a math module in Python to use sqrt().
+
+
+In short:
+
+API is a way to communicate between programs.
+
+Module is a way to organize code within a program.
+
+Here’s the difference between API and module in Python with examples:
+
+
+---
+
+1. Python Module
+
+A module is just a .py file that contains Python code — functions, variables, 
+classes, etc.
+
+Example:
+
+# mymath.py (this is a module)
+def add(a, b):
+    return a + b
+
+You can import and use it like this:
+
+import mymath
+
+print(mymath.add(3, 4))  # Output: 7
+
+2. Python API
+
+An API in Python is typically used to interact with a library or service, 
+either local or remote (e.g., web service). It exposes methods/functions you 
+can use without knowing internal code.
+
+Example: Calling a web API using the requests module
+
+import requests
+
+response = requests.get("https://api.github.com/users/octocat")
+data = response.json()
+
+print(data["login"])  # Output: octocat
+
+In this case:
+
+requests is a module.
+
+https://api.github.com/users/octocat is a web API provided by GitHub.
+
+You're using the requests module to talk to the GitHub API.
+
+
+
+---
+
+Summary:
+
+mymath.add() → calling a function from a module.
+
+requests.get() → using a module to talk to an external API.
+
 
 
 
